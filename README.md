@@ -1,1 +1,1 @@
-# deskala-project
+# deskala-assignment
