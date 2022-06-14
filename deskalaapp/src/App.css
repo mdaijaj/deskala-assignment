@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.label {
+  text-align: left;
+}
+
+.h5{
+  text-align: left;
+}
+
+.form-group{
+  text-align: left;
+}
+.totalcandidate{
+  text-align: left;
+  padding: 25px;
+}

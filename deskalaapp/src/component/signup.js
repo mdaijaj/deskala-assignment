@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 
+
 const Singup = () => {
     const [ user, setUser] = useState({
         email: "",
         phone: "",
         password: "",
     });
-    
     const navigate = useNavigate()
+
 
     let name, value;
     const handleInput = (e) => {
@@ -51,28 +52,15 @@ const Singup = () => {
     }
 
 
-
-
     return (
         <>
-            <h1> Signup Form</h1>
             <div className="container" style={{ border: "2px solid gray", width: "500px", height: "400px" }}>
+            <h5> Signup Form</h5>
+
                 <div className="col-10" style={{ margin: "auto" }}>
+                
                     <form method='Post'>
                         <div className="form-row">
-                            <div className="form-group col-md-8">
-                                <label for="inputAddress">Phone</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    onChange={handleInput}
-                                    name='phone'
-                                    id="inputAddress"
-                                    value={user.phone}
-                                    placeholder="+91 "
-                                />
-                            </div>
-
                             <div className="form-group col-md-8">
                                 <label for="inputEmail4">Email</label>
                                 <input
@@ -87,6 +75,19 @@ const Singup = () => {
                             </div>
 
                             <div className="form-group col-md-8">
+                                <label for="inputAddress">Phone Number</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    onChange={handleInput}
+                                    name='phone'
+                                    id="inputAddress"
+                                    value={user.phone}
+                                    placeholder="+91 "
+                                />
+                            </div>
+
+                            <div className="form-group col-md-8">
                                 <label for="inputPassword4">Password</label>
                                 <input
                                     type="password"
@@ -96,7 +97,7 @@ const Singup = () => {
                                     id="inputPassword4"
                                     value={user.password}
                                     placeholder="Password" />
-                                <p style={{textAlign: "right"}}>Minimum 8 Alpha numeric </p>
+                                <p style={{textAlign: "right", color: "skyblue"}}>Minimum 8 Alpha numeric </p>
                             </div>
                         </div>
 

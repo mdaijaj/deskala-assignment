@@ -9,7 +9,6 @@ const Login = () => {
         email: "", 
         password: "", 
     });
-
     const navigate = useNavigate()
 
 
@@ -51,6 +50,8 @@ const Login = () => {
         <>
             <h1> Login Form</h1>
             <div className="container" style={{ border: "2px solid gray", width: "500px", height: "400px" }}>
+            <h5> Login Form</h5>
+
                 <div className="col-10" style={{ margin: "auto" }}>
                 <form method='Post'>
 
@@ -74,7 +75,7 @@ const Login = () => {
                                 name='password' 
                                 id="inputPassword4" 
                                 placeholder="Password" />
-                            <p style={{textAlign: "right"}}>Minimum 8 Alpha numeric </p>
+                            <p style={{textAlign: "right", color: "skyblue"}}>Minimum 8 Alpha numeric </p>
 
                         </div>
                     </div>

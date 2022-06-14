@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams} from "react-router-dom";
 import '../App.css';
+import axios from 'axios';
 
-const NewCandidate = () => {
+const EditCandidate = (props) => {
+    console.log("props", props)
     const [candidate, setCandidate] = useState({
         name: "",
         dob: "",
@@ -14,6 +16,8 @@ const NewCandidate = () => {
         email: "",
     });
     const navigate = useNavigate()
+    const { id } = useParams()
+    console.log(id)
 
 
     let name, value;
@@ -24,49 +28,39 @@ const NewCandidate = () => {
         setCandidate({ ...candidate, [name]: value })  //[] dynamic data for
     }
 
-    const addCandidate = async (e) => {
+    const editCandidate = async (e) => {
         e.preventDefault();
         const { name, dob, age, address, state, pincode, email } = candidate;
-        console.log(name, dob, age, address, state, pincode, email, "kkkk")
-
-        const regInf = {
-            method: "Post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name, dob, age, address, state, pincode, email
-            })
-        }
-
-        const res = await fetch('/newcandidate', regInf);
-        const result = await res.json()
+        
+        const result =await axios.put(`/editcandidate/${id}`, candidate);
         console.log("result", result)
 
-        if (res.status === 400 || !res) {
+        if (result.status === 400 || !result) {
             window.alert("Invalid candidate");
             console.log("Invalid candidate")
         }
         else {
-            window.alert("new candidate add is successfully!")
-            console.log("new candidate add is successfully")
+            window.alert("candidate details updated successfully!")
+            console.log("candidate details updated successfully")
             navigate('/landing')
         }
     }
 
     return (
         <>
-            <h1>Create Candidate</h1>
+            <h1>Update Candidate</h1>
             <div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow
                 <div className="container" style={{ width: "800px", height: "500px" }}>
                     <div className='row'>
                         <div className="col-3"></div>
-
-                        <form style={{boxShadow: "5px 5px 5px 5px", color: "lightgray", padding: "30px"}}>
-                        <h5 style={{ textAlign: "left", padding: "20px", fontWeight: "bold" }}> create new candidate.</h5>
+                        {/* <div className="col-3" style={{ margin: "auto" }}> */}
+                        
+                        <form method='Post' style={{boxShadow: "5px 5px 5px 5px", color: "lightgray", padding: "30px"}}>
+                        <h5 style={{ textAlign: "left", padding: "20px", fontWeight: "bold" }}> Update candidate.</h5>
 
                             <div className="form-row"  >
-                                <div className="form-group col-md-5">
+
+                                <div className="form-group col-md-5"   >
                                     <label for="inputName">Name</label>
                                     <input
                                         type="text"
@@ -140,7 +134,7 @@ const NewCandidate = () => {
                                         name='pincode'
                                         id="inputPincode"
                                         value={candidate.pincode}
-                                        placeholder="enter your 6-digit pinocode"
+                                        placeholder="pincode"
                                     />
                                 </div>
 
@@ -156,10 +150,9 @@ const NewCandidate = () => {
                                         placeholder="email" />
                                 </div>
                             </div>
-                            
                             <div className="" style={{ textAlign: "right",}}>
                                 <button style={{margin: "40px", textAlign: "20px"}} type="submit" className="btn btn-primary" onClick={"postSingup"}>Cancel</button>
-                                <button type="submit" className="btn btn-primary" onClick={addCandidate}>Sign in</button>
+                                <button type="submit" className="btn btn-primary" onClick={editCandidate}>Update</button>
                             </div>
                         </form>
                         {/* <div className="col-3"></div> */}
@@ -170,4 +163,4 @@ const NewCandidate = () => {
     )
 }
 
-export default NewCandidate;
+export default EditCandidate;

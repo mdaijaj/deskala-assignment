@@ -85,12 +85,13 @@ const editCandidate = async (req, res) => {
 
 //delete candidate details
 const deleteCandidate = async (req, res) => {
-    try {
-        console.log(new mongoose.Types.ObjectId())
-        const itemId=req.query._id
-        const deleteInf = await Candidate.findByIdAndRemove({_id: itemId});
+    const userid=req.params.id
+    console.log("aijaj", userid);
+
+    try{
+        const deleteInf=await Candidate.findByIdAndRemove({_id: mongoose.Types.ObjectId(userid)});
         console.log("delete successfully!", deleteInf)
-        return res.send({ message: "delete successfully!", status: "success" })
+        res.send({message: "delete successfully!", status: "success"})
     } catch (err) {
         console.log("error  while deleting...")
         console.log(err.message)

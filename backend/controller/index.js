@@ -77,57 +77,6 @@ const login= async (req,res)=>{
     } 
 }
 
-// const feedback= async(req,res)=>{
-//     try{
-//         const obj = new Feedback(req.body);
-//         const result=await obj.save();
-//         console.log("feedback insert successfully!");
-//         res.send("feedback sent successfully!");
-//     }
-//     catch(err){
-//         console.log(err.message)
-//         res.send(err.message)
-//     }
-// }
-
-
-// const contact= async (req,res)=>{
-//     try{
-//         const {name, email, phone, message}=req.body;
-//         if(!name || !email || !phone || message){
-//             console.log("user fill all fields")
-//             return res.status(401).send("your fill all fields")
-//         }
-//         const userContact=await User.findOne({_id: req.UserId})
-
-//         console.log("userContact", userContact)
-//         if(userContact){
-//             const userMessage= await userContact.addMessage(name, email, phone, message);
-//             await userContact.save();
-//             return res.status(201).send({message: "user message success!"}) 
-//         }
-//     }
-//     catch(err){
-//         console.log(err.message)
-//         res.status(400).send("error contact page")
-//     }
-// }
-
-// const about= async(req,res)=>{
-//     console.log("about page open");
-//     res.send(req.userRouter);
-// }
-
-const contactData= async(req,res)=>{
-    console.log("about page open");
-    res.send(req.userRouter);
-}
-
-// const home= async(req,res)=>{
-//     console.log("hello about page...")
-//     res.send(req.userRouter);
-// }
-
 
 const logout= async(req,res)=>{
     console.log("logout")
@@ -139,6 +88,5 @@ const logout= async(req,res)=>{
 module.exports={
     signup,
     login,
-    logout,
-    contactData
+    logout
 }
