@@ -49,11 +49,11 @@ const Login = () => {
     return (
         <>
             <h1> Login Form</h1>
-            <div className="container" style={{ border: "2px solid gray", width: "500px", height: "400px" }}>
-            <h5> Login Form</h5>
+            <div className="container" style={{ width: "500px"}}>
 
                 <div className="col-10" style={{ margin: "auto" }}>
-                <form method='Post'>
+                <form style={{boxShadow: "5px 5px 5px 5px", color: "lightgray", padding: "30px", height: "500px"}}>
+                <h5> Login Form</h5>
 
                     <div className="form-row">
                         <div className="form-group col-md-10">

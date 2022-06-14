@@ -57,7 +57,7 @@ const NewCandidate = () => {
     return (
         <>
             <h1>Create Candidate</h1>
-            <div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
                 <div className="container" style={{ width: "800px", height: "500px" }}>
                     <div className='row'>
                         <div className="col-3"></div>

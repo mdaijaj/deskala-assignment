@@ -54,14 +54,14 @@ const Singup = () => {
 
     return (
         <>
-            <div className="container" style={{ border: "2px solid gray", width: "500px", height: "400px" }}>
-            <h5> Signup Form</h5>
-
-                <div className="col-10" style={{ margin: "auto" }}>
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div className="container" style={{ width: "500px"}}>
                 
-                    <form method='Post'>
+                <form style={{boxShadow: "5px 5px 5px 5px", color: "lightgray", padding: "30px", height: "600px"}}>
+                <h5> Signup Form</h5>
+
                         <div className="form-row">
-                            <div className="form-group col-md-8">
+                            <div className="form-group col-md-10">
                                 <label for="inputEmail4">Email</label>
                                 <input
                                     type="email"
@@ -74,7 +74,7 @@ const Singup = () => {
                                 />
                             </div>
 
-                            <div className="form-group col-md-8">
+                            <div className="form-group col-md-10">
                                 <label for="inputAddress">Phone Number</label>
                                 <input
                                     type="number"
@@ -87,7 +87,7 @@ const Singup = () => {
                                 />
                             </div>
 
-                            <div className="form-group col-md-8">
+                            <div className="form-group col-md-10">
                                 <label for="inputPassword4">Password</label>
                                 <input
                                     type="password"
